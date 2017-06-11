@@ -42,9 +42,9 @@ var storeReciever = storeDispatcher.register(function(payload) {
             var value = parseInt(payload.value);
             if(value > 0) {
                 
-                var record;
+                var record = {list:[]};
                 store.get(currentMetric, function(ret) {
-                    record = ret;
+                    if(ret) record = ret;
                 });
                 
                 if(currentMetric != 'weight') {
@@ -52,7 +52,12 @@ var storeReciever = storeDispatcher.register(function(payload) {
                     value = amt + value; 
                 }
                 
-                if(record) record.list.push(value)
+                if(record) {
+                    if(record.list) {
+                        record.list.push(value)
+                    }               
+                }
+                
                 values[currentMetric] = {amt: value, metric: currentMetric, time: new Date(), list:record.list};
                 store.save({key:currentMetric, amt: value, metric: currentMetric, time: new Date(), list:record.list});
             }
