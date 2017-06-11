@@ -25,6 +25,7 @@ $('#app').on('click', '.weight', function(e){
     store.dispatch({actionType:'SET_METRIC', metric: 'weight'})
     currentMetric = 'weight'
     $('x-modal').show();
+    $('x-modal input').focus();
 })
 
 $('#app').on('click', '.water', function(e){
@@ -32,7 +33,8 @@ $('#app').on('click', '.water', function(e){
     toggleBlur();
     store.dispatch({actionType:'SET_METRIC', metric: 'water'})
     currentMetric = 'water'
-    $('x-modal').show();
+    $('x-modal').show();    
+    $('x-modal input').focus();
 })
 
 $('#app').on('click', '.activity', function(e){
@@ -41,6 +43,7 @@ $('#app').on('click', '.activity', function(e){
     store.dispatch({actionType:'SET_METRIC', metric: 'activity'})
     currentMetric = 'activity'
     $('x-modal').show();
+    $('x-modal input').focus();
 })
 
 $('#app').on('click', '.calories', function(e){
@@ -49,6 +52,7 @@ $('#app').on('click', '.calories', function(e){
     currentMetric = 'calories'
     store.dispatch({actionType:'SET_METRIC', metric: 'calories'})
     $('x-modal').show();
+    $('x-modal input').focus();
 })
 
 store.register(function(payload) {

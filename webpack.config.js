@@ -85,7 +85,8 @@ module.exports = {
             mobile: true,
             template: require('html-webpack-template'),
             links: [
-                'https://fonts.googleapis.com/css?family=Lato" rel="stylesheet'            
+                'https://fonts.googleapis.com/css?family=Lato" rel="stylesheet',
+                {rel:'manifest', href:'icons/manifest.json'}         
             ],
             meta: [
                 {name: 'mobile-web-app-capable', content:'yes'}
@@ -101,7 +102,7 @@ module.exports = {
             }
         }),
        
-        new FaviconsWebpackPlugin('./src/logo.png'),
+        new FaviconsWebpackPlugin({logo: './src/logo.png', prefix: 'icons/'}),
         
  /*       new AppCachePlugin({
           cache: ['index.html','app.commons.min.js'],
