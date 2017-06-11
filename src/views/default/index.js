@@ -16,7 +16,7 @@ var labels = {
 }
 
 function toggleBlur() {
-    $('.weight, .water, .activity, .calories').toggleClass('blur');
+    $('.weight, .water, .activity, .calories, .hamburger').toggleClass('blur');
 }
 
 $('#app').on('click', '.hamburger', function() {
