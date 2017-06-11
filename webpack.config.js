@@ -83,14 +83,15 @@ module.exports = {
             inject: false,
             appMountId: 'app',
             title: 'EZTracker',
-            mobile: true,
+            mobile: false,
             template: require('html-webpack-template'),
             links: [
                 'https://fonts.googleapis.com/css?family=Lato" rel="stylesheet',
                 {rel:'manifest', href:'icons/manifest.json'}         
             ],
             meta: [
-                {name: 'mobile-web-app-capable', content:'yes'}
+                {name: 'mobile-web-app-capable', content:'yes'},
+                {name: 'viewport', content:'width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, target-densityDpi=device-dpi'}
             ]
         }),
         
@@ -104,15 +105,32 @@ module.exports = {
         }),
        
         new FaviconsWebpackPlugin({logo: './src/logo.png', prefix: 'icons/'}),
-        new OfflinePlugin()
- /*       new AppCachePlugin({
+        new OfflinePlugin({
+            caches: 'all',
+            updateStrategy: 'changed',
+            responseStrategy: 'cache-first',
+            excludes: ['**/*.map'],
+            ServiceWorker: {
+                output: 'assets/sw.js'
+            },
+            AppCache: {
+                NETWORK: '*',
+                FALLBACK: null,
+                directory: 'appcache/',
+                caches: ['main'],
+                events: false,
+                disableInstall: false,
+                includeCrossOrigin: false
+            }
+        }),
+/*        new AppCachePlugin({
           cache: ['index.html','app.commons.min.js'],
           network: ['app.js'],  // No network access allowed!
           fallback: ['failwhale.jpg'],
           settings: ['prefer-online'],
           exclude: [/.*\.js$/],  // all .js files
           output: 'webmanifest.appcache'
-        })
-    */
+        })*/
+    
     ],
 };

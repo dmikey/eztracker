@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test":  "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf build && webpack",
     "serve": "webpack-dev-server --content-base build/",
-    "zip" :  "rm -f build.zip && cd build && zip ../build.zip * -r",
-    "dist" : "npm run build && npm run zip"
+    "zip": "rm -f build.zip && cd build && zip ../build.zip * -r",
+    "dist": "npm run build && npm run zip"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +20,7 @@
     "base64-image-loader": "^1.2.0",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",
+    "document-register-element": "^1.5.0",
     "favicons-webpack-plugin": "0.0.7",
     "flux": "^3.1.2",
     "grapnel": "^0.6.4",
