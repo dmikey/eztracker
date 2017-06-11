@@ -1,0 +1,60 @@
+x-modal {
+
+.scrim {
+
+    position: absolute;
+    z-index: 900;
+    background: #4a4a4a;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    top: 0;
+    opacity: .7;
+
+}
+
+.entry-modal {
+    color: #fff;
+    position: absolute;
+    z-index: 910;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    top: 0;
+    .inner {
+        text-align: center;
+        margin-top: 40%;  
+        .message {
+            font-size: 2em;  
+            margin-left: 10px;
+            margin-right: 10px;
+            text-align: center;
+            display: inline-block;      
+        }  
+        input {
+            margin-top: 25px;
+            background: transparent;
+            color: #fff;
+            border: none;
+            font-size: 4em;
+            text-align: center;
+            width: 100%;  
+            border-bottom: 1px solid #fff;  
+        }
+        button {
+            border-radius: 25px;
+            font-size: 2em;
+            background: transparent;
+            border: 1px solid white;
+            padding: 15px;
+            margin-top: 25px;
+            color: #fff;  
+            &:active {
+                background: #fff;
+                color: #000;            
+            }      
+        }
+    }
+}
+
+}
