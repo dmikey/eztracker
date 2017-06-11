@@ -7,6 +7,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 var FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 var AppCachePlugin = require('appcache-webpack-plugin');
+var OfflinePlugin = require('offline-plugin');
 
 module.exports = {
 
@@ -103,7 +104,7 @@ module.exports = {
         }),
        
         new FaviconsWebpackPlugin({logo: './src/logo.png', prefix: 'icons/'}),
-        
+        new OfflinePlugin()
  /*       new AppCachePlugin({
           cache: ['index.html','app.commons.min.js'],
           network: ['app.js'],  // No network access allowed!
