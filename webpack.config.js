@@ -82,7 +82,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             inject: false,
             appMountId: 'app',
-            title: 'EZTrack',
+            title: 'EZTracker',
             mobile: true,
             template: require('html-webpack-template'),
             links: [
