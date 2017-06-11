@@ -19,6 +19,10 @@ function toggleBlur() {
     $('.weight, .water, .activity, .calories').toggleClass('blur');
 }
 
+$('#app').on('click', '.hamburger', function() {
+    $(this).toggleClass('is-active')
+});
+
 $('#app').on('click', '.weight', function(e){
     $('x-modal')[0].setMessage('What Is Your Current Weight?');
     toggleBlur();
