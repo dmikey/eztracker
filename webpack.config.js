@@ -5,6 +5,8 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+var FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+var AppCachePlugin = require('appcache-webpack-plugin');
 
 module.exports = {
 
@@ -99,6 +101,16 @@ module.exports = {
             }
         }),
        
-  
+        new FaviconsWebpackPlugin('./src/logo.png'),
+        
+ /*       new AppCachePlugin({
+          cache: ['index.html','app.commons.min.js'],
+          network: ['app.js'],  // No network access allowed!
+          fallback: ['failwhale.jpg'],
+          settings: ['prefer-online'],
+          exclude: [/.*\.js$/],  // all .js files
+          output: 'webmanifest.appcache'
+        })
+    */
     ],
 };

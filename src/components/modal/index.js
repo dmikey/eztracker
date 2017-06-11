@@ -13,6 +13,9 @@ module.exports = module.exports = xtag.register('x-modal', {
                 self.dismiss();
                 store.dispatch({actionType:'ADD_ENTRY', value: value.val()})
             })   
+            $('.cancel', this).on('click', function(){
+                 self.dismiss();
+            })
             $(this).hide();     
         }    
     },

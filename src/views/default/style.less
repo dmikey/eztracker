@@ -1,6 +1,6 @@
 html, body {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -8,18 +8,30 @@ html, body {
 }
 
 .blur {
-    filter: blur(3px);
+    filter: blur(10px);
 }
 
 .weight {
     width: 100%;
-    height: 25%;
+    height: 34%;
     background-color: #E91E63;
     text-align: center;
     color: white;
-    padding-top: 20%; 
+position: relative;
     .value {
-        font-size: 4em;   
+        font-size: 4em;
+        text-shadow: 1px 1px 2px rgba(74,74,74,0.35); 
+        display: inline-block;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        position: absolute;
+        left: 50%;  
+    }
+    .label {
+        display: inline-block;
+        top: 70%;
+        transform: translate(-50%, -50%);
+        position: absolute; 
     }
 }
 
@@ -27,13 +39,25 @@ html, body {
 
     color: white;
     width: 50%;
-    height: 15%;
+    height: 24%;
     background: #76b353;
     text-align: center;
-    padding-top: 15%;
     float: left;
+position: relative;
     .value {
         font-size: 2em;   
+        text-shadow: 1px 1px 2px rgba(74,74,74,0.35);
+        display: inline-block;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        position: absolute;
+        left: 50%;
+    }
+    .label {
+        display: inline-block;
+        top: 70%;
+        transform: translate(-50%, -50%);
+        position: absolute;   
     }
 }
 
@@ -41,24 +65,48 @@ html, body {
 
     color: white;
     width: 50%;
-    height: 15%;
+    height: 24%;
     background: #FF9800;
     text-align: center;
-    padding-top: 15%;
     float: left;
+position: relative;
     .value {
         font-size: 2em;   
+        text-shadow: 1px 1px 2px rgba(74,74,74,0.35);
+        display: inline-block;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        position: absolute;
+        left: 50%;
+    }
+    .label {
+        display: inline-block;
+        top: 70%;
+        transform: translate(-50%, -50%);
+        position: absolute;  
     }
 }
 
 .activity {
     color: white;
-    height: 41%;
+    height: 42%;
     background-color: #2196F3;
     text-align: center;
-    padding-top: 20%;
+position: relative;
     .value {
-        font-size: 4em;   
+        font-size: 4em;  
+        text-shadow: 1px 1px 2px rgba(74,74,74,0.35); 
+        display: inline-block;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        position: absolute;
+        left: 50%;
+    }
+    .label {
+        display: inline-block;
+        top: 70%;
+        transform: translate(-50%, -50%);
+        position: absolute;
     }
 }
 

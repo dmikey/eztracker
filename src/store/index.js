@@ -3,26 +3,64 @@ var Dispatcher = require('flux').Dispatcher;
 var actions = require('./actions');
 
 var storeDispatcher = new Dispatcher();
-var waterStore = new Lawnchair({adaptor:'dom', table:'water'});
-var weightStore = new Lawnchair({adaptor:'dom', table:'weight'});
-var caloriesStore = new Lawnchair({adaptor:'dom', table:'calories'});
-var activityStore = new Lawnchair({adaptor:'dom', table:'activity'});
+var store = new Lawnchair()
 var currentMetric;
+var values = {};
 
 var storeReciever = storeDispatcher.register(function(payload) {
     switch(payload.actionType) {
+        
+        case 'INIT':
+            
+            store.get('weight', function(record) {
+                values.weight = record;
+            });
+            
+            store.get('water', function(record) {
+                values.water = record;
+            });
+            
+            store.get('activity', function(record) {
+                values.activity = record;
+            });
+            
+            store.get('calories', function(record) {
+                values.calories = record;
+            });
+            
+            setTimeout(function(){
+                storeDispatcher.dispatch({actionType:'UI_UPDATE', values: values})            
+            })
+
+        break;
     
         case 'SET_METRIC':
             currentMetric = payload.metric;
-           
         break;
         
         case 'ADD_ENTRY':
             var value = parseInt(payload.value);
             if(value > 0) {
-            
-                console.log('adding entry');            
+                
+                var record;
+                store.get(currentMetric, function(ret) {
+                    record = ret;
+                });
+                
+                if(currentMetric != 'weight') {
+                    var amt = values[currentMetric] && values[currentMetric].amt || 0;
+                    value = amt + value; 
+                }
+                
+                if(record) record.list.push(value)
+                values[currentMetric] = {amt: value, metric: currentMetric, time: new Date(), list:record.list};
+                store.save({key:currentMetric, amt: value, metric: currentMetric, time: new Date(), list:record.list});
             }
+            
+            setTimeout(function(){
+                storeDispatcher.dispatch({actionType:'UI_UPDATE', values: values})            
+            })
+            
        
         break;
     }
